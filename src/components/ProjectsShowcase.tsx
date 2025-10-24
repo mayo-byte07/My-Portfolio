@@ -12,14 +12,14 @@ const ProjectsShowcase = () => {
       demo: "https://su-national-hackathon.vercel.app/",
       status: "Production"
     },
-   {
+  {
   title: "LOGIN PAGE",
   description: "Responsive login interface with real-time input validation and secure password handling. Features user-friendly design, instant error feedback, and clean form UX. Built for smooth authentication integration.",
   tech: ["HTML","CSS","JavaScript"],
   github: "https://github.com/mayo-byte07/LOGIN-PAGE",
   demo: "https://mayo-byte07.github.io/LOGIN-PAGE/",
   status: "Live"
-}
+    },
 
     {
       title: "Alumni Management System",
