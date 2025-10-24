@@ -7,7 +7,7 @@ const ProjectsShowcase = () => {
     {
       title: "Healthetico",
       description: "Enterprise-grade precision health intelligence platform with multi-modal AI. Real-time biometric synthesis, NLP-powered symptom analysis, risk vector fusion, and HIPAA-compliant security. Always online with 96% accuracy, supporting lightning-fast health assessments.",
-      tech: ["React", "Node.js", "PostgreSQL", "Redis"],
+      tech: ["React","Node.js","Vector Database","Edge Computing","NLP Engine","Bayesian Inference","GPT-4 Level Model"],
       github: "https://github.com/mayo-byte07/SU-NATIONAL-HACKATHON",
       demo: "https://su-national-hackathon.vercel.app/",
       status: "Production"
