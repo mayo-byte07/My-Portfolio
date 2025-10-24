@@ -12,14 +12,15 @@ const ProjectsShowcase = () => {
       demo: "https://su-national-hackathon.vercel.app/",
       status: "Production"
     },
-    {
-      title: "Login Page",
-      description: "ML-powered data visualization with predictive analytics, real-time charts, and custom reporting engine.",
-      tech: ["Next.js", "Python", "TensorFlow", "D3.js"],
-      github: "https://github.com/mayo-byte07/LOGIN-PAGE",
-      demo: "https://mayo-byte07.github.io/LOGIN-PAGE/",
-      status: "Live"
-    },
+   {
+  title: "LOGIN PAGE",
+  description: "Responsive login interface with real-time input validation and secure password handling. Features user-friendly design, instant error feedback, and clean form UX. Built for smooth authentication integration.",
+  tech: ["HTML","CSS","JavaScript"],
+  github: "https://github.com/mayo-byte07/LOGIN-PAGE",
+  demo: "https://mayo-byte07.github.io/LOGIN-PAGE/",
+  status: "Live"
+}
+
     {
       title: "Alumni Management System",
       description: "RESTful API serving 100K+ requests/day. Features JWT auth, rate limiting, Redis caching, and comprehensive docs.",
