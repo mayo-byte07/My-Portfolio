@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 9 9% 6%;
+    --foreground: 120 100% 90%;
+
+    --card: 120 5% 12%;
+    --card-foreground: 120 100% 90%;
+
+    --popover: 9 9% 6%;
+    --popover-foreground: 120 100% 90%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 9 9% 6%;
+
+    --secondary: 197 71% 73%;
+    --secondary-foreground: 9 9% 6%;
+
+    --muted: 120 5% 18%;
+    --muted-foreground: 120 10% 60%;
+
+    --accent: 330 81% 60%;
+    --accent-foreground: 9 9% 6%;
+
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 120 100% 90%;
+
+    --border: 120 10% 20%;
+    --input: 120 10% 20%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.5rem;
+
+    /* Terminal-inspired gradient tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(197 71% 73%));
+    --gradient-accent: linear-gradient(135deg, hsl(330 81% 60%), hsl(280 70% 55%));
+    --gradient-terminal: linear-gradient(180deg, hsl(9 9% 6%), hsl(120 5% 10%));
+    
+    /* Code-style shadows with green matrix glow */
+    --shadow-glow: 0 0 60px hsl(142 76% 36% / 0.4), 0 0 120px hsl(142 76% 36% / 0.2);
+    --shadow-card: 0 10px 40px -10px hsl(142 76% 36% / 0.3);
+    --shadow-text: 0 0 10px hsl(142 76% 36% / 0.8);
+    
+    /* Animation tokens */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  }
+
+  /* Code block styling */
+  .code-block {
+    @apply bg-card border border-border rounded-lg p-4 font-mono text-sm;
+  }
+
+  /* Terminal cursor animation */
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .cursor {
+    animation: blink 1s infinite;
+  }
+
+  /* Matrix-style text glow */
+  .text-glow {
+    text-shadow: var(--shadow-text);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--secondary));
+  }
+}
