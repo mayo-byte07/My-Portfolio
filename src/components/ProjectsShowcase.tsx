@@ -22,12 +22,11 @@ const ProjectsShowcase = () => {
     },
 
     {
-      title: "Alumni Management System",
-      description: "RESTful API serving 100K+ requests/day. Features JWT auth, rate limiting, Redis caching, and comprehensive docs.",
-      tech: ["Express", "MongoDB", "Redis", "Docker"],
-      github: "#",
-      demo: "#",
-      status: "Production"
+      title: "IoT Alcohol Detection",
+      description: "A smart IoT-based Alcohol Detection System using Arduino Uno and an MQ-3 sensor. Features a real-time dual-alert system (LED & Buzzer) to detect ethanol levels and enhance safety in driving or industrial environments.",
+      tech: ["Arduino", "MQ-3 Sensor", "C++", "Buzzer", "LED"],
+      github: "https://github.com/mayo-byte07/IOT-PROJECT-ALCHOL-DETECTION-SYSTEM",
+      status: "Completed"
     },
     {
       title: "More Projects Coming Soon",
@@ -46,6 +45,8 @@ const ProjectsShowcase = () => {
         return "text-primary";
       case "Beta":
         return "text-secondary";
+      case "Completed":
+        return "text-accent";
       default:
         return "text-muted-foreground";
     }

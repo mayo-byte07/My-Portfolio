@@ -1,19 +1,19 @@
 import { Card } from "@/components/ui/card";
-import { Code2, Database, Cpu, Zap, Terminal, GitBranch } from "lucide-react";
+import { Code2, Database, Cpu, Zap, Terminal, GitBranch, Film, Palette } from "lucide-react";
 
 const CodeAbout = () => {
   const skills = [
     {
       icon: <Code2 className="w-8 h-8" />,
       title: "Frontend Wizard",
-      description: "React, TypeScript, Next.js",
+      description: "React , TypeScript , Next.js",
       color: "text-primary",
       borderColor: "border-primary/50"
     },
     {
       icon: <Database className="w-8 h-8" />,
       title: "Backend Architect",
-      description: "Node.js, PostgreSQL, Redis",
+      description: "Node.js , PostgreSQL, Redis, MongoDB, GraphQL",
       color: "text-secondary",
       borderColor: "border-secondary/50"
     },
@@ -27,7 +27,28 @@ const CodeAbout = () => {
     {
       icon: <GitBranch className="w-8 h-8" />,
       title: "DevOps Enthusiast",
-      description: "Docker, CI/CD, AWS",
+      description: "Docker , CI/CD, AWS, Git, Vercel",
+      color: "text-primary",
+      borderColor: "border-primary/50"
+    },
+    {
+      icon: <Film className="w-8 h-8" />,
+      title: "Video Editor",
+      description: "Premiere Pro , After Effects, CapCut , Davinci Resolve",
+      color: "text-secondary",
+      borderColor: "border-secondary/50"
+    },
+    {
+      icon: <Palette className="w-8 h-8" />,
+      title: "Graphics Designer",
+      description: "Figma , Photoshop , Canva",
+      color: "text-accent",
+      borderColor: "border-accent/50"
+    },
+    {
+      icon: <Zap className="w-8 h-8" />,
+      title: "Learning",
+      description: "Rust , Kubernetes, WebAssembly, Three.js",
       color: "text-primary",
       borderColor: "border-primary/50"
     }
@@ -68,7 +89,7 @@ const CodeAbout = () => {
           {skills.map((skill, index) => (
             <Card 
               key={index}
-              className={`p-8 bg-card/30 backdrop-blur border-2 ${skill.borderColor} hover:bg-card/50 transition-all duration-300 hover:shadow-glow group relative overflow-hidden`}
+              className={`p-8 bg-card/30 backdrop-blur border-2 ${skill.borderColor} hover:bg-card/50 transition-all duration-300 hover:shadow-glow group relative overflow-hidden ${skill.title === 'Learning' ? 'md:col-span-2' : ''}`}
             >
               {/* Animated corner accent */}
               <div className={`absolute top-0 right-0 w-20 h-20 ${skill.color} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity`} />

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Mail, Twitter, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, Send, Instagram } from "lucide-react";
 
 const ContactTerminal = () => {
   const socialLinks = [
@@ -14,7 +14,7 @@ const ContactTerminal = () => {
     {
       name: "github",
       icon: <Github className="w-5 h-5" />,
-      href: "https://github.com",
+      href: "https://github.com/mayo-byte07",
       handle: "@mayo-byte07",
       color: "text-secondary"
     },
@@ -31,6 +31,13 @@ const ContactTerminal = () => {
       href: "https://x.com/mayocodes",
       handle: "@mayocodes",
       color: "text-primary"
+    },
+    {
+      name: "instagram",
+      icon: <Instagram className="w-5 h-5" />,
+      href: "https://www.instagram.com/mayo.click/",
+      handle: "@mayo.click",
+      color: "text-secondary"
     }
   ];
 
@@ -64,11 +71,11 @@ const ContactTerminal = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
           {socialLinks.map((link, idx) => (
             <Card 
               key={idx}
-              className="p-6 bg-card/30 backdrop-blur border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow group"
+              className={`p-6 bg-card/30 backdrop-blur border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow group ${socialLinks.length % 2 !== 0 && idx === socialLinks.length - 1 ? 'md:col-span-2' : ''}`}
             >
               <a 
                 href={link.href}

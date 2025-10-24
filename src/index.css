@@ -67,6 +67,14 @@ All colors MUST be HSL.
   /* Code block styling */
   .code-block {
     @apply bg-card border border-border rounded-lg p-4 font-mono text-sm;
+    /* Fallback styles in case @apply doesn't work */
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   /* Terminal cursor animation */
@@ -101,4 +109,13 @@ All colors MUST be HSL.
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--secondary));
   }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
