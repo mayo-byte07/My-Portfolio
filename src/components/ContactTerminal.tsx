@@ -35,9 +35,9 @@ const ContactTerminal = () => {
     {
       name: "instagram",
       icon: <Instagram className="w-5 h-5" />,
-      href: "https://www.instagram.com/mayo.click/",
+      href: "https://www.instagram.com/mayo.click",
       handle: "@mayo.click",
-      color: "text-secondary"
+      color: "text-pink-500"
     }
   ];
 
@@ -71,27 +71,32 @@ const ContactTerminal = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12 px-4">
           {socialLinks.map((link, idx) => (
             <Card 
               key={idx}
-              className={`p-6 bg-card/30 backdrop-blur border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-glow group ${socialLinks.length % 2 !== 0 && idx === socialLinks.length - 1 ? 'md:col-span-2' : ''}`}
+              className="flex-1 min-w-[180px] max-w-[220px] p-4 bg-card/40 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(16,185,129,0.1)] group"
             >
               <a 
                 href={link.href}
                 target={link.name !== "email" ? "_blank" : undefined}
                 rel={link.name !== "email" ? "noopener noreferrer" : undefined}
-                className="block"
+                className="block h-full"
               >
-                <div className="flex items-center gap-4">
-                  <div className={`${link.color} group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_currentColor] transition-all duration-300`}>
-                    {link.icon}
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className={`p-2 rounded-lg bg-background/50 ${link.color} group-hover:scale-105 group-hover:shadow-[0_0_15px_currentColor] transition-all duration-300`}>
+                      {link.icon}
+                    </div>
+                    <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground transition-colors whitespace-nowrap">
+                      {link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+                    </span>
                   </div>
-                  <div className="flex-1">
-                    <p className="font-mono text-sm text-muted-foreground mb-1">
+                  <div className="mt-1">
+                    <p className="font-mono text-xs text-muted-foreground whitespace-nowrap">
                       <span className="text-accent">const</span> {link.name} <span className="text-accent">=</span>
                     </p>
-                    <p className={`font-mono text-sm ${link.color} group-hover:text-glow transition-all`}>
+                    <p className={`font-mono text-xs mt-1 ${link.color} group-hover:underline underline-offset-2 decoration-dotted transition-all truncate`}>
                       "{link.handle}"
                     </p>
                   </div>

@@ -1,51 +1,36 @@
-// src/components/LoadingScreen.tsx
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-const messages = [
-  "Booting up the mainframe...",
-  "Connecting to the grid...",
-  "Initializing neural network...",
-  "Compiling quantum algorithms...",
-  "Loading digital portfolio...",
-];
-
-const LoadingScreen = (): JSX.Element => {
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-  const [dots, setDots] = useState("");
+const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const messageInterval = setInterval(() => {
-      setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
-    }, 2000);
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(timer);
+          setTimeout(() => {
+            onLoadingComplete();
+          }, 500);
+          return 100;
+        }
+        return prev + 1;
+      });
+    }, 30);
 
-    const dotsInterval = setInterval(() => {
-      setDots((prevDots) => (prevDots.length >= 3 ? "" : prevDots + "."));
-    }, 500);
-
-    return () => {
-      clearInterval(messageInterval);
-      clearInterval(dotsInterval);
-    };
-  }, []);
+    return () => clearInterval(timer);
+  }, [onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background text-foreground font-mono">
-      <div className="w-full max-w-md text-center">
-        <div className="text-lg text-primary mb-4">
-          <span className="text-accent">$</span> {messages[currentMessageIndex]}
-          <span className="animate-pulse">{dots}</span>
-        </div>
-        <div className="relative w-full h-1 bg-border overflow-hidden rounded-sm">
-          <div className="absolute top-0 left-0 h-full bg-primary animate-pulse" style={{ width: '100%' }}></div>
-        </div>
-        <div className="mt-4 text-sm text-muted-foreground flex justify-between">
-          <span>[SYSTEM]</span>
-          <span>INITIATING...</span>
-        </div>
+    <div className="fixed inset-0 bg-background z-50 flex flex-col items-center justify-center">
+      <div className="w-64 h-1 bg-muted rounded-full overflow-hidden mb-4">
+        <div 
+          className="h-full bg-primary transition-all duration-300" 
+          style={{ width: `${progress}%` }}
+        />
       </div>
-      <div className="absolute bottom-4 right-4 text-xs text-muted-foreground">
-        <p>PIYUSH SINGH // PORTFOLIO v1.0</p>
-      </div>
+      <p className="text-muted-foreground font-mono">
+        Loading... {progress}%
+      </p>
     </div>
   );
 };

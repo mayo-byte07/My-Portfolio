@@ -1,19 +1,19 @@
 import { Card } from "@/components/ui/card";
-import { Code2, Database, Cpu, Zap, Terminal, GitBranch, Film, Palette } from "lucide-react";
+import { Code2, Database, Cpu, Zap, Terminal, GitBranch, Palette, Video } from "lucide-react";
 
 const CodeAbout = () => {
   const skills = [
     {
       icon: <Code2 className="w-8 h-8" />,
       title: "Frontend Wizard",
-      description: "React , TypeScript , Next.js",
+      description: "React, TypeScript, Next.js",
       color: "text-primary",
       borderColor: "border-primary/50"
     },
     {
       icon: <Database className="w-8 h-8" />,
       title: "Backend Architect",
-      description: "Node.js , PostgreSQL, Redis, MongoDB, GraphQL",
+      description: "Node.js, PostgreSQL, MongoDB",
       color: "text-secondary",
       borderColor: "border-secondary/50"
     },
@@ -27,30 +27,23 @@ const CodeAbout = () => {
     {
       icon: <GitBranch className="w-8 h-8" />,
       title: "DevOps Enthusiast",
-      description: "Docker , CI/CD, AWS, Git, Vercel",
+      description: "Docker, CI/CD, AWS",
       color: "text-primary",
       borderColor: "border-primary/50"
     },
     {
-      icon: <Film className="w-8 h-8" />,
-      title: "Video Editor",
-      description: "Premiere Pro , After Effects, CapCut , Davinci Resolve",
+      icon: <Palette className="w-8 h-8" />,
+      title: "Graphic Designer",
+      description: "UI/UX, Canva , Figma , Adobe Photoshop",
       color: "text-secondary",
       borderColor: "border-secondary/50"
     },
     {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Graphics Designer",
-      description: "Figma , Photoshop , Canva",
+      icon: <Video className="w-8 h-8" />,
+      title: "Video Editor",
+      description: "Premiere Pro, After Effects , CapCut , DaVinci Resolve",
       color: "text-accent",
       borderColor: "border-accent/50"
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Learning",
-      description: "Rust , Kubernetes, WebAssembly, Three.js",
-      color: "text-primary",
-      borderColor: "border-primary/50"
     }
   ];
 
@@ -71,12 +64,13 @@ const CodeAbout = () => {
           <div className="code-block max-w-2xl">
             <p className="text-muted-foreground">
               <span className="text-secondary">FUNCTION</span>{" "}
-              <span className="text-foreground">buildAwesomeStuff</span>
+              <span className="text-foreground">buildAWSomeStuff</span>
               <span className="text-accent">() {'{'}</span>
             </p>
             <p className="text-muted-foreground pl-4">
               <span className="text-secondary">return</span>{" "}
-              <span className="text-primary">"Passionate about creating elegant solutions to complex problems. 2+ years turning ideas into reality."</span>
+              <span className="text-primary">"Passionate about creating elegant solutions to complex problems. 
+                2+ years turning ideas into reality."</span>
               <span className="text-accent">;</span>
             </p>
             <p className="text-muted-foreground">
@@ -89,7 +83,7 @@ const CodeAbout = () => {
           {skills.map((skill, index) => (
             <Card 
               key={index}
-              className={`p-8 bg-card/30 backdrop-blur border-2 ${skill.borderColor} hover:bg-card/50 transition-all duration-300 hover:shadow-glow group relative overflow-hidden ${skill.title === 'Learning' ? 'md:col-span-2' : ''}`}
+              className={`p-8 bg-card/30 backdrop-blur border-2 ${skill.borderColor} hover:bg-card/50 transition-all duration-300 hover:shadow-glow group relative overflow-hidden`}
             >
               {/* Animated corner accent */}
               <div className={`absolute top-0 right-0 w-20 h-20 ${skill.color} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity`} />

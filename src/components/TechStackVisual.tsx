@@ -17,20 +17,10 @@ const TechStackVisual = () => {
       color: "accent",
       techs: ["Docker", "AWS", "CI/CD", "Git", "Vercel"]
     },
-    {
+     {
       name: "Learning",
       color: "muted",
       techs: ["Rust", "Kubernetes", "WebAssembly", "Three.js"]
-    },
-    {
-      name: "Video Editor",
-      color: "primary",
-      techs: ["Premiere Pro", "After Effects", "CapCut", "Davinci Resolve"]
-    },
-    {
-      name: "Graphics Designer",
-      color: "primary",
-      techs: ["Figma", "Photoshop", "Canva"]
     }
   ];
 
