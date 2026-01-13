@@ -21,6 +21,16 @@ const TechStackVisual = () => {
       name: "Learning",
       color: "muted",
       techs: ["Rust", "Kubernetes", "WebAssembly", "Three.js"]
+    },
+     {
+      name: "Video Editor",
+      color: "accent",
+      techs: ["DaVinci Resolve", "CapCut", "Premier Pro", "After Effects"]
+    },
+     {
+      name: "Graphic Designer",
+      color: "muted",
+      techs: ["Canva", "Figma", "UI/UX", "Adobe Photoshop"]
     }
   ];
 
