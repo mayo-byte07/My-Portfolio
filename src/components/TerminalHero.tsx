@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const TerminalHero = () => {
   const [displayedText, setDisplayedText] = useState("");
-  const fullText = "Full Stack Developer";
+  const fullText = "Full Stack Developer , Video Editior , Graphic Designer";
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {

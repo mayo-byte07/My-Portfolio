@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import ProjectsPage from "./pages/ProjectsPage";
 import NotFound from "./pages/NotFound";
 import LoadingScreen from "@/components/LoadingScreen";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <>
+          <ScrollToTop />
           {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
           <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
             <Routes>

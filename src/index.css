@@ -32,6 +32,18 @@ All colors MUST be HSL.
     --destructive: 0 63% 50%;
     --destructive-foreground: 120 100% 90%;
 
+    --tertiary: 45 90% 55%;
+    --tertiary-foreground: 9 9% 6%;
+
+    --quaternary: 25 95% 53%;
+    --quaternary-foreground: 9 9% 6%;
+
+    --quinary: 170 70% 45%;
+    --quinary-foreground: 9 9% 6%;
+
+    --senary: 280 70% 55%;
+    --senary-foreground: 9 9% 6%;
+
     --border: 120 10% 20%;
     --input: 120 10% 20%;
     --ring: 142 76% 36%;
