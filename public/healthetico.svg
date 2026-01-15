@@ -1,0 +1,9 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#10b981"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">
+    Healthetico
+  </text>
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">
+    Health Intelligence Platform
+  </text>
+</svg>

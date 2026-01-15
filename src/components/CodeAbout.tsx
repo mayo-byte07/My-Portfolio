@@ -78,10 +78,9 @@ const CodeAbout = () => {
                 <span className="text-foreground">buildAWSomeStuff</span>
                 <span className="text-accent">() {'{'}</span>
               </p>
-              <p className="text-muted-foreground pl-4">
+              <p className="text-muted-foreground pl-4 leading-relaxed">
                 <span className="text-secondary">return</span>{" "}
-                <span className="text-primary">"Passionate about creating elegant solutions to complex problems. 
-                  2+ years turning ideas into reality."</span>
+                <span className="text-primary">"Passionate about creating elegant solutions to complex problems.\n                  2+ years turning ideas into reality."</span>
                 <span className="text-accent">;</span>
               </p>
               <p className="text-muted-foreground">
@@ -94,17 +93,17 @@ const CodeAbout = () => {
             {skills.map((skill, index) => (
               <Card 
                 key={index}
-                className={`p-8 bg-card/30 backdrop-blur border-2 ${skill.borderColor} hover:bg-card/50 transition-all duration-300 hover:shadow-glow group relative overflow-hidden cursor-pointer`}
+                className={`p-8 bg-card/40 backdrop-blur-sm border-2 ${skill.borderColor} hover:bg-card/60 transition-all duration-300 hover:shadow-glow group relative overflow-hidden cursor-pointer hover:scale-[1.02]`}
                 onClick={() => setSelectedSkill(skill)}
               >
                 {/* Animated corner accent */}
                 <div className={`absolute top-0 right-0 w-20 h-20 ${skill.color} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity`} />
                 
-                <div className={`mb-4 ${skill.color} group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_currentColor] transition-all duration-300`}>
+                <div className={`mb-4 ${skill.color} group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_currentColor] transition-all duration-300`}>
                   {skill.icon}
                 </div>
-                <h3 className="text-2xl font-semibold mb-3 font-mono">{skill.title}</h3>
-                <p className="text-muted-foreground font-mono text-sm">
+                <h3 className="text-2xl font-bold mb-3 font-mono group-hover:text-foreground transition-colors">{skill.title}</h3>
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
                   <span className="text-accent">//</span> {skill.description}
                 </p>
               </Card>

@@ -20,5 +20,22 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function() {
+          emailjs.init("rLB--UcvgUNaepQev");
+       })();
+       
+       // Verify EmailJS is loaded
+       window.addEventListener('load', function() {
+         if (window.emailjs) {
+           console.log('EmailJS loaded successfully');
+         } else {
+           console.error('EmailJS failed to load');
+         }
+       });
+    </script>
   </body>
 </html>

@@ -1,18 +1,16 @@
 import TerminalHero from "@/components/TerminalHero";
-import CodeAbout from "@/components/CodeAbout";
-import TechStackVisual from "@/components/TechStackVisual";
-import ProjectsShowcase from "@/components/ProjectsShowcase";
-import ContactTerminal from "@/components/ContactTerminal";
 import CodeFooter from "@/components/CodeFooter";
+import { Button } from "@/components/ui/button";
+import { User, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       <TerminalHero />
-      <CodeAbout />
-      <TechStackVisual />
-      <ProjectsShowcase />
-      <ContactTerminal />
+      
       <CodeFooter />
     </div>
   );

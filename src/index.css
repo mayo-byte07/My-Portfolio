@@ -55,14 +55,17 @@ All colors MUST be HSL.
     --gradient-accent: linear-gradient(135deg, hsl(330 81% 60%), hsl(280 70% 55%));
     --gradient-terminal: linear-gradient(180deg, hsl(9 9% 6%), hsl(120 5% 10%));
     
-    /* Code-style shadows with green matrix glow */
-    --shadow-glow: 0 0 60px hsl(142 76% 36% / 0.4), 0 0 120px hsl(142 76% 36% / 0.2);
-    --shadow-card: 0 10px 40px -10px hsl(142 76% 36% / 0.3);
-    --shadow-text: 0 0 10px hsl(142 76% 36% / 0.8);
+    /* Enhanced Code-style shadows with green matrix glow */
+    --shadow-glow: 0 0 80px hsl(142 76% 36% / 0.6), 0 0 160px hsl(142 76% 36% / 0.3), 0 0 240px hsl(142 76% 36% / 0.1);
+    --shadow-card: 0 20px 60px -15px hsl(142 76% 36% / 0.4);
+    --shadow-text: 0 0 20px hsl(142 76% 36% / 0.9), 0 0 40px hsl(142 76% 36% / 0.6);
+    --shadow-secondary-glow: 0 0 60px hsl(197 71% 73% / 0.5), 0 0 120px hsl(197 71% 73% / 0.2);
+    --shadow-accent-glow: 0 0 60px hsl(330 81% 60% / 0.5), 0 0 120px hsl(330 81% 60% / 0.2);
     
-    /* Animation tokens */
+    /* Enhanced Animation tokens */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-glow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
@@ -76,17 +79,19 @@ All colors MUST be HSL.
     font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   }
 
-  /* Code block styling */
+  /* Enhanced Code block styling */
   .code-block {
-    @apply bg-card border border-border rounded-lg p-4 font-mono text-sm;
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 font-mono text-sm shadow-lg;
     /* Fallback styles in case @apply doesn't work */
-    background-color: var(--background);
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    padding: 1rem;
+    background-color: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
     font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
     font-size: 0.875rem;
     line-height: 1.25rem;
+    box-shadow: 0 10px 25px -5px hsl(var(--foreground) / 0.1);
   }
 
   /* Terminal cursor animation */
@@ -99,27 +104,41 @@ All colors MUST be HSL.
     animation: blink 1s infinite;
   }
 
-  /* Matrix-style text glow */
+  /* Enhanced Matrix-style text glow */
   .text-glow {
     text-shadow: var(--shadow-text);
+    filter: brightness(1.1);
+  }
+  
+  .text-glow-secondary {
+    text-shadow: 0 0 20px hsl(197 71% 73% / 0.8), 0 0 40px hsl(197 71% 73% / 0.5);
+    filter: brightness(1.1);
+  }
+  
+  .text-glow-accent {
+    text-shadow: 0 0 20px hsl(330 81% 60% / 0.8), 0 0 40px hsl(330 81% 60% / 0.5);
+    filter: brightness(1.1);
   }
 
-  /* Scrollbar styling */
+  /* Enhanced Scrollbar styling */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-track {
     background: hsl(var(--background));
+    border-radius: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
-    border-radius: 5px;
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--secondary)));
+    border-radius: 6px;
+    box-shadow: var(--shadow-glow);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--secondary));
+    background: linear-gradient(180deg, hsl(var(--secondary)), hsl(var(--accent)));
+    box-shadow: var(--shadow-secondary-glow);
   }
 }
 
@@ -128,6 +147,64 @@ All colors MUST be HSL.
   50% { opacity: 0.5; }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: var(--shadow-glow);
+  }
+  50% { 
+    box-shadow: 0 0 120px hsl(142 76% 36% / 0.8), 0 0 240px hsl(142 76% 36% / 0.4);
+  }
+}
+
 .animate-pulse {
   animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.delay-75 {
+  animation-delay: 75ms;
+}
+
+.delay-150 {
+  animation-delay: 150ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }
